@@ -1,0 +1,75 @@
+<button
+  type="button"
+  class="hamburger"
+  aria-label="Open menu"
+  (click)="hamburgerOpen = !hamburgerOpen"
+  [ngClass]="hamburgerOpen ? 'menu-open' : ''"
+  *ngIf="showNav === true"
+>
+  <div class="hamburger__box">
+    <div class="hamburger__bar"></div>
+  </div>
+</button>
+
+<nav
+  [ngClass]="hamburgerOpen ? 'menu-open' : ''"
+  [ngClass]="showNav ? 'menu-visible' : ''"
+>
+  <ul class="navlist">
+    <li>
+      <a
+        #about
+        tabindex="0"
+        (click)="scrollToContent(content[1])"
+        (keyup)="scrollToContent(content[1])"
+        class="navlist__link"
+        ><i class="fas fa-user-alt"></i>About</a
+      >
+    </li>
+    <li>
+      <a
+        #skills
+        tabindex="0"
+        (click)="scrollToContent(content[2])"
+        (keypress)="scrollToContent(content[2])"
+        class="navlist__link"
+        ><i class="fas fa-code"></i>Skills</a
+      >
+    </li>
+    <li>
+      <a
+        #projects
+        tabindex="0"
+        (click)="scrollToContent(content[3])"
+        (keypress)="scrollToContent(content[3])"
+        class="navlist__link"
+        ><i class="fas fa-th-large"></i>Projects</a
+      >
+    </li>
+    <li>
+      <a
+        #contact
+        tabindex="0"
+        (click)="scrollToContent(content[4])"
+        (keypress)="scrollToContent(content[4])"
+        class="navlist__link"
+        ><i class="fas fa-address-card"></i>Contact</a
+      >
+    </li>
+    <li class="navlist__cv">
+      <button class="navlist__link navlist__link--cv btn">
+        <i class="fas fa-file-download"></i>Get CV
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<button
+  type="button"
+  class="scroll-top"
+  aria-label="Scroll top"
+  [ngClass]="showNav ? 'menu-open' : ''"
+  (click)="scrollToContent(content[0])"
+>
+  <i class="fas fa-chevron-circle-up" aria-hidden="true"></i>
+</button>

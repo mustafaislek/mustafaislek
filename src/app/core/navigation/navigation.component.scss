@@ -1,0 +1,226 @@
+@import "../../../scss/variables";
+
+@mixin bar($top) {
+  position: absolute;
+  top: $top;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  border-radius: 2%;
+  background-color: $white;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 11;
+  display: inline-block;
+  padding: 10px;
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-tap-highlight-color: rgba($red, 0.3);
+
+  &__box {
+    position: relative;
+    height: 20px;
+    width: 25px;
+  }
+
+  &__bar {
+    @include bar(50%);
+
+    transform: translateY(-50%);
+
+    &::before {
+      @include bar(-8px);
+
+      content: "";
+    }
+
+    &::after {
+      @include bar(8px);
+
+      content: "";
+    }
+  }
+}
+
+nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transform: translateX(-100%);
+  transition: transform 0.2s;
+  background-color: $dark;
+
+  .navlist {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__cv {
+      align-self: center;
+    }
+
+    &__link {
+      font-size: 1.5em;
+      padding: 5px 10px;
+      white-space: nowrap;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba($red, 0.3);
+
+      &--cv {
+        font-size: 20px !important;
+      }
+
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.scroll-top {
+  position: fixed;
+  right: 6vw;
+  bottom: 4vh;
+  z-index: 5;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  transition: transform 0.2s;
+  transform: translateY(calc(150% + 5vh));
+  cursor: pointer;
+
+  i {
+    transition: color 0.2s;
+    margin-right: 0;
+    color: darken($red, 5%);
+    font-size: 3.5em;
+  }
+}
+
+.menu-open {
+  transform: translate(0, 0);
+
+  .hamburger__bar {
+    background-color: transparent;
+
+    &::before {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  nav {
+    .navlist {
+      top: 10%;
+      height: 80%;
+    }
+  }
+}
+
+@media (min-width: 768px) and (orientation: portrait) {
+  .hamburger {
+    top: 25px;
+    left: 25px;
+  }
+
+  nav {
+    width: 70vw;
+
+    .navlist {
+      height: 50%;
+    }
+  }
+
+  .scroll-top {
+    i {
+      font-size: 6em;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+
+  .menu-visible {
+    transform: translateX(0);
+  }
+
+  nav {
+    width: 18vw;
+    background-color: transparent;
+
+    .navlist {
+      top: 30%;
+      height: 40%;
+      align-items: flex-start;
+
+      &__link.active-link,
+      &__link.active-link i {
+        transform: translate(8%);
+        color: $red;
+      }
+
+      &__link {
+        display: inline-block;
+        transition: transform 0.2s, color 0.2s, background-color 0.2s;
+
+        i {
+          transition: transform 0.2s, color 0.2s;
+        }
+
+        &--cv i {
+          transform: translateX(0) !important;
+          color: $white !important;
+        }
+
+        &:hover {
+          @extend .active-link;
+        }
+      }
+    }
+  }
+
+  .scroll-top {
+    i {
+      transition: 0.2s;
+      font-size: 6em;
+
+      &:hover {
+        color: darken($red, 20%);
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  nav {
+    width: 15vw;
+
+    .navlist {
+      &__link {
+        font-size: 25px;
+      }
+    }
+  }
+}

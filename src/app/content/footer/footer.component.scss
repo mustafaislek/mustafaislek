@@ -1,0 +1,32 @@
+@import "../../../scss/variables";
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 220px;
+  width: 100%;
+  background-color: $dark;
+
+  .logo {
+    margin: -10px 0 -20px 0;
+    width: 40vw;
+    max-width: 200px;
+  }
+
+  .author {
+    font-size: 1.2em;
+    font-family: "Lato", sans-serif;
+  }
+
+  .media {
+    &__link {
+      margin: 0 15px;
+    }
+  }
+
+  .copyright {
+    font-family: "Lato", sans-serif;
+  }
+}

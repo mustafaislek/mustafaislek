@@ -1,0 +1,126 @@
+<section class="page-section" #contact>
+  <h2 class="page-section__title">contact</h2>
+
+  <div class="page-section__element">
+    <div class="contact">
+      <div class="contact__icon">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+      </div>
+      <strong class="contact__title">Location: </strong>
+      <span class="contact__content">Everywhere :) Remote</span>
+    </div>
+
+    <div class="contact">
+      <a
+        class="contact__icon"
+        href="mailto:islekmustafaa@gmail.com"
+        aria-label="Open email app"
+        rel="noopener"
+        ><i class="fas fa-envelope" aria-hidden="true"></i
+      ></a>
+      <strong class="contact__title">Email: </strong>
+      <a
+        class="contact__content"
+        href="mailto:islekmustafaa@gmail.com"
+        tabindex="-1"
+        rel="noopener"
+        >islekmustafaa@gmail.com</a
+      >
+    </div>
+
+    <!-- <div class="contact">
+      <a
+        class="contact__icon"
+        href="tel:+48693073365"
+        aria-label="Call me"
+        rel="noopener"
+        ><i class="fas fa-phone-alt" aria-hidden="true"></i
+      ></a>
+      <strong class="contact__title">Phone: </strong>
+      <a
+        class="contact__content"
+        href="tel:+48693073365"
+        tabindex="-1"
+        rel="noopener"
+        >693 073 365</a
+      >
+    </div> -->
+
+    <!-- <div class="contact-form">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+        <div class="contact-form__item">
+          <label
+            class="contact-form__label"
+            for="name"
+            #nameLabel
+            [ngClass]="name.value !== '' ? 'active-label' : ''"
+            >Your name</label
+          >
+          <input
+            class="contact-form__input"
+            type="text"
+            name="name"
+            id="name"
+            formControlName="name"
+          />
+        </div>
+        <div class="contact-form__item">
+          <label
+            class="contact-form__label"
+            for="email"
+            #emailLabel
+            [ngClass]="email.value !== '' ? 'active-label' : ''"
+            >Your email</label
+          >
+          <input
+            class="contact-form__input"
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="contact-form__item">
+          <label
+            class="contact-form__label"
+            for="message"
+            #messageLabel
+            [ngClass]="message.value !== '' ? 'active-label' : ''"
+            >How can I help you?</label
+          >
+          <textarea
+            class="contact-form__input contact-form--message"
+            name="message"
+            id="message"
+            formControlName="message"
+          >
+          </textarea>
+        </div>
+        <button [disabled]="!contactForm.valid" type="submit" class="btn">
+          <i class="fas fa-paper-plane"></i>Send
+        </button>
+        <div class="contact-form__item contact-form__item--errors">
+          <span
+            class="contact-form__error"
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+            >Please enter your name.</span
+          >
+          <span
+            class="contact-form__error"
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            >Please enter valid email.</span
+          >
+          <span
+            class="contact-form__error"
+            *ngIf="message.invalid && (message.dirty || message.touched)"
+            >Please don't send me empty emails.</span
+          >
+          <span #success class="contact-form__success" *ngIf="mailSent"
+            >Thank you for message. I will contact you soon.</span
+          >
+        </div>
+      </form>
+    </div> -->
+
+  </div>
+</section>
